@@ -10,7 +10,7 @@
 const isValidRequestBody = function(requestBody) {
     return Object.keys(requestBody).length > 0 
 }
-
+const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
  const registerIntern = async function (req,res){
      try{
          const requestBody = req.body;
@@ -31,7 +31,7 @@ const isValidRequestBody = function(requestBody) {
          
          //email validation
          email = email.trim()
-         if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
+         if(!(regex.test(email))) {
             res.status(400).send({status: false, message: `Email should be a valid email address`})
             return
         }
