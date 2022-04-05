@@ -4,7 +4,7 @@ const internModel = require("../models/internModel.js");
 const isValid = function (value, type) {
     if (typeof value === 'undefined' || value === null) return false
     if (typeof value === type && value.trim().length === 0) return false
-    if(typeof value != type ) return false
+    if(typeof value != type ) return false 
     return true;
 }
 const isValidRequestBody = function (requestBody) {
